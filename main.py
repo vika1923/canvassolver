@@ -4,14 +4,13 @@ import interact
 
 options = uc.ChromeOptions()
 
-print("Launching driver...")
+# print("Launching driver...")
 driver = uc.Chrome(options=options, use_subprocess=True)
 
-print("Opening page...")
-driver.get("https://auttashkent.instructure.com/courses/238/pages/start-here-syllabus?module_item_id=4237")
+# print("Opening page...")
+driver.get("https://auttashkent.instructure.com/courses/238/pages/1-dot-2-technology-case-file-1-vocabulary?module_item_id=4240")
 # driver.get("https://en.wikipedia.org/wiki/Almaz")
-
-timeandpauses.longpause()
+timeandpauses.pause()
 
 if "Login" in driver.title:
     print("ATTENTION! login manually, then come back")
@@ -20,6 +19,10 @@ if "Login" in driver.title:
 while True:
     if "quizzes" in driver.current_url:
         interact.solvequiz(driver=driver)
-        timeandpauses.wait()
+        timeandpauses.longpause()
     else:
         interact.nextpage(driver=driver)
+
+
+# vkim@aut-edu.uz
+# pwNoOneNeeds1
