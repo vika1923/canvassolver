@@ -8,8 +8,8 @@ options = uc.ChromeOptions()
 driver = uc.Chrome(options=options, use_subprocess=True)
 
 # print("Opening page...")
-driver.get("https://auttashkent.instructure.com/courses/238/pages/1-dot-2-technology-case-file-1-vocabulary?module_item_id=4240")
-# driver.get("https://en.wikipedia.org/wiki/Almaz")
+driver.get("https://auttashkent.instructure.com/courses/239/pages/1-dot-5a-getting-acquainted-grammar-guide-1-was-slash-were?module_item_id=4405")
+
 timeandpauses.pause()
 
 if "Login" in driver.title:

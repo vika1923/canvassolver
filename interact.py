@@ -7,6 +7,7 @@ import timeandpauses
 import random
 import time
 import parsequestionpage
+import askai
 
 
 def click_element(driver, by_method, selector, timeout=10):
@@ -59,9 +60,22 @@ def solvequiz(driver):
         except NoSuchElementException:
             click_element(driver, By.CSS_SELECTOR, "a.btn.btn-primary[data-method='post']")
 
+
         # get the list of the questions ---> 
         # for q in questions: get answer from the AI -> click_element(<answer>) ---> 
         # submit .|
+        
+        formatted_QnAs = parsequestionpage.getquestionslist(driver=driver)
 
-        parsequestionpage.getquestions(driver)
+        for formatted_question in formatted_QnAs:
+            print(formatted_question)
+            if formatted_question.find("OPEN ENDED QUESTION.") != -1:
+                print("getanswertext", askai.getanswertext(formatted_question))
+            elif formatted_question.find("TEST.") != -1:
+                print("getanswerindex", askai.getanswerindex(formatted_question))
+            else:
+                print("line 76, interact.py")
+            timeandpauses.wait()
+        # TODO PROCEED
+
             
