@@ -1,5 +1,3 @@
-# TODO >>> probably canvas does not have a strong, if any, bot detection. still, should improve stealthiness (mimic real user behavior: pauses, realistic mouse movements, typing, etc.) <<< TODO
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException
@@ -25,14 +23,14 @@ def click_element(driver, by_method, selector, timeout=10):
 
 
 def nextpage(driver):
-    timeandpauses.pause()
-    total_height = driver.execute_script("return document.body.scrollHeight")
-    current_position = 0
-    while current_position < total_height:
-        scroll_amount = random.randint(100, 300)
-        current_position = min(current_position + scroll_amount, total_height)
-        driver.execute_script(f"window.scrollTo(0, {current_position});")
     timeandpauses.shortpause()
+    # total_height = driver.execute_script("return document.body.scrollHeight")
+    # current_position = 0
+    # while current_position < total_height:
+    #     scroll_amount = random.randint(100, 300)
+    #     current_position = min(current_position + scroll_amount, total_height)
+    #     driver.execute_script(f"window.scrollTo(0, {current_position});")
+    # timeandpauses.shortpause()
     
     click_element(driver, By.CSS_SELECTOR, "a[aria-label='Next Module Item']")
 
@@ -57,7 +55,6 @@ def solvequiz(driver):
         nextpage(driver)
     else: 
         try:
-            # TODO >>> mb except is never used? <<< TODO
             click_element(driver, By.CSS_SELECTOR, "div.take_quiz_button a.btn.btn-primary")
         except NoSuchElementException:
             click_element(driver, By.CSS_SELECTOR, "a.btn.btn-primary[data-method='post']")

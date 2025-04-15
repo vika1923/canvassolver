@@ -22,7 +22,3 @@ while True:
         timeandpauses.longpause()
     else:
         interact.nextpage(driver=driver)
-
-
-# vkim@aut-edu.uz
-# pwNoOneNeeds1

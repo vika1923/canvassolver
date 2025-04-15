@@ -10,4 +10,4 @@ def longpause():
 def thinkhard():
     time.sleep(random.uniform(5, 20))
 def wait():
-    input("Press the <ENTER> to continue...")
+    input("Press <ENTER> to continue...")
