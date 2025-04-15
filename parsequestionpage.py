@@ -32,3 +32,6 @@ def getQnAs(driver):
 # Example usage
 questions_and_answers = getQnAs(driver)
 print(questions_and_answers)
+
+# vkim@aut-edu.uz
+# pwNoOneNeeds1
