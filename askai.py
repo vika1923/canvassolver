@@ -1,14 +1,11 @@
-import os
 import requests
-import json
-from openai import OpenAI
 import timeandpauses
-import re
+import rotateapikeys
 
-API_KEY = os.getenv("AI_API_KEY")
+API_KEY = rotateapikeys.choosevalidkey()
 print(API_KEY)
-abdulaziz = "google/gemini-2.5-pro-exp-03-25:free"      # slow, correct.
-almaz = "google/gemma-3-27b-it:free"                    # fast, wrong.
+# abdulaziz = "google/gemini-2.5-pro-exp-03-25:free"      # slow, accurate.
+almaz = "google/gemma-3-27b-it:free"                    # fast, inaccurate. but good
 
 def ask_model(prompt, model=almaz):
     url = "https://openrouter.ai/api/v1/chat/completions"
@@ -61,7 +58,7 @@ def ask_model(prompt, model=almaz):
     try:
         return data["choices"][0]["message"]["content"]
     except:
-        print("Хайюд")
+        print("Хайюд. askai.py")
         print(data)
         return None
     
